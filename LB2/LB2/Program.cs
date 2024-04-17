@@ -1,76 +1,33 @@
-﻿using System;
+﻿using LB2.Infrastructure.Classes;
+using LB2.Infrastructure.Interfaces;
+using LB2.Orders;
 
-// Клас, що представляє обробку замовлення
-class OrderProcessor
+namespace LB2;
+
+internal class Program
 {
-    public void ProcessOrder(string orderType)
+    private static void Main(string[] args)
     {
-        if (orderType == "electronic")
-        {
-            Console.WriteLine("Processing electronic order...");
-        }
-        else if (orderType == "book")
-        {
-            Console.WriteLine("Processing book order...");
-        }
-        else
-        {
-            Console.WriteLine("Invalid order type!");
-        }
-    }
+        IOrderProcessor orderProcessor = new OrderProcessor();
+        IOrderValidator orderValidator = new OrderValidator();
+        IEmailConfirmationSender emailConfirmationSender = new EmailConfirmationSender();
 
-    public void ValidateOrder(string orderType)
-    {
-        if (orderType == "electronic")
+        IOrder[] orders =
         {
-            Console.WriteLine("Electronic order validated.");
-        }
-        else if (orderType == "book")
-        {
-            Console.WriteLine("Book order validated.");
-        }
-        else
-        {
-            Console.WriteLine("Invalid order type!");
-        }
-    }
+            new BookOrder(),
+            new ElectronicOrder(),
+            new InvalidOrder(),
+            new BookOrder(),
+            new ElectronicOrder(),
+            new BookOrder(),
+            new InvalidOrder()
+        };
 
-    public void SendConfirmationEmail(string orderType)
-    {
-        if (orderType == "electronic")
+        foreach (var order in orders)
         {
-            Console.WriteLine("Confirmation email sent for electronic order.");
+            order.Process();
+            order.Validate();
+            order.SendEmail();
         }
-        else if (orderType == "book")
-        {
-            Console.WriteLine("Confirmation email sent for book order.");
-        }
-        else
-        {
-            Console.WriteLine("Invalid order type!");
-        }
-    }
-}
-
-class Program
-{
-    static void Main(string[] args)
-    {
-        OrderProcessor orderProcessor = new OrderProcessor();
-
-        // Обробка замовлень
-        orderProcessor.ProcessOrder("electronic");
-        orderProcessor.ProcessOrder("book");
-        orderProcessor.ProcessOrder("clothes");
-
-        // Валідація замовлень
-        orderProcessor.ValidateOrder("electronic");
-        orderProcessor.ValidateOrder("book");
-        orderProcessor.ValidateOrder("clothes");
-
-        // Надсилання підтверджень по електронній пошті
-        orderProcessor.SendConfirmationEmail("electronic");
-        orderProcessor.SendConfirmationEmail("book");
-        orderProcessor.SendConfirmationEmail("clothes");
     }
 }
