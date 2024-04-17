@@ -1,0 +1,15 @@
+D:\code\nure\tpr\LB2\LB2\bin\Debug\net7.0\LB2.exe
+D:\code\nure\tpr\LB2\LB2\bin\Debug\net7.0\LB2.deps.json
+D:\code\nure\tpr\LB2\LB2\bin\Debug\net7.0\LB2.runtimeconfig.json
+D:\code\nure\tpr\LB2\LB2\bin\Debug\net7.0\LB2.dll
+D:\code\nure\tpr\LB2\LB2\bin\Debug\net7.0\LB2.pdb
+D:\code\nure\tpr\LB2\LB2\obj\Debug\net7.0\LB2.GeneratedMSBuildEditorConfig.editorconfig
+D:\code\nure\tpr\LB2\LB2\obj\Debug\net7.0\LB2.AssemblyInfoInputs.cache
+D:\code\nure\tpr\LB2\LB2\obj\Debug\net7.0\LB2.AssemblyInfo.cs
+D:\code\nure\tpr\LB2\LB2\obj\Debug\net7.0\LB2.csproj.CoreCompileInputs.cache
+D:\code\nure\tpr\LB2\LB2\obj\Debug\net7.0\LB2.sourcelink.json
+D:\code\nure\tpr\LB2\LB2\obj\Debug\net7.0\LB2.dll
+D:\code\nure\tpr\LB2\LB2\obj\Debug\net7.0\refint\LB2.dll
+D:\code\nure\tpr\LB2\LB2\obj\Debug\net7.0\LB2.pdb
+D:\code\nure\tpr\LB2\LB2\obj\Debug\net7.0\LB2.genruntimeconfig.cache
+D:\code\nure\tpr\LB2\LB2\obj\Debug\net7.0\ref\LB2.dll
