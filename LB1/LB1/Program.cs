@@ -1,49 +1,71 @@
 ﻿namespace LB1
 {
-    class Program
+    public class Program
     {
-        static void Main()
+        public static int Converter()
         {
-            Console.WriteLine("Enter size of array: ");
-            int a = Convert.ToInt32(Console.ReadLine());
+            int inputValue = -1;
 
-            var array = new int[a];
-            Console.WriteLine("Please fill the array: ");
-
-            for (int i = 0; i < array.Length; i++)
+            while (!Int32.TryParse(Console.ReadLine(), out inputValue))
             {
-                array[i] = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Please enter valid value!");
             }
 
-            Console.WriteLine("Your array: ");
+            return inputValue;
+        }
+
+        public static void Fill(ref int[] array)
+        {
+            Console.WriteLine("Please fill the array: ");
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = Converter();
+            }
+        }
+
+        public static void Print(int[] array)
+        {
             for (int i = 0; i < array.Length; i++)
             {
                 Console.Write(array[i] + " ");
             }
+        }
 
+        public async static Task<int[]> Sort(int[] array)
+        {
             Console.Write("Sort");
             for (int i = 0; i < 3; i++)
             {
                 Thread.Sleep(500);
                 Console.Write(".");
             }
+            await Task.Run(() => SortAsync(ref array));
 
-            for (int i = 0; i < array.Length; i++)
-            {
-                for (int j = 0; j < array.Length - 1; j++)
-                {
-                    if (array[j] > array[j + 1])
-                    {
-                        int temp = array[j];
-                        array[j] = array[j + 1];
-                        array[j + 1] = temp;
-                    }
-                }
-            }
-            for (int i = 0; i < array.Length; i++)
-            {
-                Console.Write(array[i] + " ");
-            }
+            return array;
+        }
+
+        public static int[] SortAsync(ref int[] arrayToSort)
+        {
+            Array.Sort(arrayToSort);
+            Console.WriteLine("\nSorting done");
+
+            return arrayToSort;
+        }
+
+        async static Task Main()
+        {
+            Console.WriteLine("Enter size of array: ");
+            int arraySize = Converter();
+
+            var arrayBeforeSort = new int[arraySize];
+            Fill(ref arrayBeforeSort);
+
+            Console.WriteLine("\nYour array: ");
+            Print(arrayBeforeSort);
+
+            Console.WriteLine("\nSorting: ");
+            await Sort(arrayBeforeSort);
+            Print(arrayBeforeSort);
         }
     }
 }
