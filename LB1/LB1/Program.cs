@@ -1,8 +1,8 @@
 ﻿namespace LB1
 {
-    class Program
+    public class Program
     {
-        private static int Converter()
+        public static int Converter()
         {
             int inputValue = -1;
 
@@ -14,7 +14,7 @@
             return inputValue;
         }
 
-        private static void Fill(ref int[] array)
+        public static void Fill(ref int[] array)
         {
             Console.WriteLine("Please fill the array: ");
             for (int i = 0; i < array.Length; i++)
@@ -23,7 +23,7 @@
             }
         }
 
-        private static void Print(int[] array)
+        public static void Print(int[] array)
         {
             for (int i = 0; i < array.Length; i++)
             {
@@ -31,7 +31,7 @@
             }
         }
 
-        private async static Task<int[]> Sort(int[] array)
+        public async static Task<int[]> Sort(int[] array)
         {
             Console.Write("Sort");
             for (int i = 0; i < 3; i++)
@@ -44,7 +44,7 @@
             return array;
         }
 
-        private static int[] SortAsync(ref int[] arrayToSort)
+        public static int[] SortAsync(ref int[] arrayToSort)
         {
             Array.Sort(arrayToSort);
             Console.WriteLine("\nSorting done");
